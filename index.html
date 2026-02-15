@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Ti ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.card {
+    background: white;
+    width: 350px;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    position: relative;
+    animation: fadeIn 2s ease-in-out;
+}
+
+h1 {
+    color: #ff4e6a;
+}
+
+p {
+    color: #444;
+    font-size: 16px;
+}
+
+img {
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 15px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    background: #ff4e6a;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff1e4d;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.heart {
+    position: absolute;
+    color: #ff4e6a;
+    animation: float 4s infinite ease-in;
+}
+
+@keyframes float {
+    from {transform: translateY(0); opacity: 1;}
+    to {transform: translateY(-600px); opacity: 0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <!-- ✏️ EDITA EL TEXTO AQUÍ -->
+    <h1>Feliz San Valentín 💖</h1>
+    <p>
+        Gracias por estar en mi vida.  
+        No importa el tiempo, siempre voy a apreciar lo que compartimos.  
+        Eres una persona increíble y mereces todo lo bonito del mundo.
+    </p>
+
+    <!-- 🖼️ CAMBIA LA IMAGEN -->
+    <img src="foto.jpg" alt="Nuestra foto">
+
+    <button onclick="mostrarMensaje()">Haz clic aquí ✨</button>
+</div>
+
+<script>
+function mostrarMensaje() {
+    alert("Solo quería recordarte lo especial que eres ❤️");
+    crearCorazones();
+}
+
+function crearCorazones() {
+    for (let i = 0; i < 15; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = "100%";
+        heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 4000);
+    }
+}
+</script>
+
+</body>
+</html>
