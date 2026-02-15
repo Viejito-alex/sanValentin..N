@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Ti ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* PORTADA */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero h1 {
+    font-size: 50px;
+}
+
+.hero p {
+    margin-top: 20px;
+    font-size: 20px;
+    max-width: 600px;
+}
+
+button {
+    margin-top: 30px;
+    padding: 12px 25px;
+    border-radius: 30px;
+    border: none;
+    background: white;
+    color: #ff4e6a;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* SECCIONES */
+.section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.section p {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+.image-box {
+    margin-top: 30px;
+}
+
+.image-box img {
+    width: 300px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* MENSAJE OCULTO */
+.hidden-message {
+    display: none;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* ANIMACIONES */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.heart {
+    position: fixed;
+    bottom: 0;
+    font-size: 20px;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    from {transform: translateY(0);}
+    to {transform: translateY(-100vh);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🌸 PORTADA -->
+<section class="hero">
+    <h1>Feliz San Valentín 💖</h1>
+    <p>
+        <!-- ✏️ EDITAR AQUÍ -->
+        Hoy no es para despedidas ni nostalgia,
+        es solo para agradecer que existes
+        y que en algún momento nuestras historias se cruzaron.
+    </p>
+    <button onclick="scrollToContent()">Baja para leer ✨</button>
+</section>
+
+<!-- 🌷 SECCIÓN 1 -->
+<section class="section" id="contenido">
+    <h2>Lo que quiero decirte</h2>
+    <p>
+        <!-- ✏️ EDITAR AQUÍ -->
+        Aquí puedes escribir un texto más largo.
+        Puedes contar recuerdos, cosas que aprecias,
+        momentos bonitos o simplemente agradecer.
+        No tiene límite, puedes hacerlo tan largo como quieras.
+    </p>
+
+    <div class="image-box">
+        <!-- 🖼️ CAMBIA LA IMAGEN -->
+        <img src="foto1.jpg" alt="Recuerdo">
+    </div>
+</section>
+
+<!-- 🌼 SECCIÓN 2 -->
+<section class="section">
+    <h2>Pequeñas cosas que valoro</h2>
+    <p>
+        <!-- ✏️ EDITAR AQUÍ -->
+        Puedes poner otra reflexión aquí.
+        Algo más personal.
+        Algo divertido.
+        Algo que solo ustedes entiendan.
+    </p>
+
+    <button onclick="mostrarMensaje()">Haz clic aquí 💌</button>
+    <p class="hidden-message" id="mensajeSecreto">
+        <!-- ✏️ EDITAR AQUÍ -->
+        Siempre voy a desearte cosas bonitas,
+        incluso cuando no estemos en el mismo lugar.
+    </p>
+</section>
+
+<!-- 🌺 SECCIÓN 3 -->
+<section class="section">
+    <h2>Gracias por…</h2>
+    <p>
+        <!-- ✏️ EDITAR AQUÍ -->
+        Aquí puedes hacer una lista larga,
+        escribir agradecimientos,
+        o incluso escribir algo más profundo.
+        La idea es que sea sincero.
+    </p>
+
+    <div class="image-box">
+        <img src="foto2.jpg" alt="Otro recuerdo">
+    </div>
+</section>
+
+<script>
+function scrollToContent() {
+    document.getElementById("contenido").scrollIntoView({ behavior: "smooth" });
+}
+
+function mostrarMensaje() {
+    document.getElementById("mensajeSecreto").style.display = "block";
+}
+
+/* Corazones flotando */
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}, 500);
+</script>
+
+</body>
+<!-- 🔐 MENSAJE CON CONTRASEÑA -->
+<section class="section" style="background: rgba(255,255,255,0.1);">
+    <h2>Un último mensaje ✨</h2>
+    <p>Si llegaste hasta aquí... quizá hay algo más 💭</p>
+
+    <input type="password" id="passwordInput" placeholder="Introduce la contraseña"
+        style="padding:10px; border-radius:20px; border:none; margin-top:15px; text-align:center;">
+
+    <br>
+
+    <button onclick="verificarPassword()">Desbloquear 🔐</button>
+
+    <p id="mensajeFinal" style="display:none; margin-top:20px; font-size:18px; font-style:italic;">
+        muchas gracias por tomarte tu tiempo en leer tdo conmigo ojala te alla gustado 🤍
+    </p>
+
+    <p id="error" style="color:#fff; margin-top:10px; display:none;">
+        Contraseña incorrecta 💔
+    </p>
+</section>
+
+<script>
+function verificarPassword() {
+    const password = document.getElementById("passwordInput").value;
+    const mensaje = document.getElementById("mensajeFinal");
+    const error = document.getElementById("error");
+
+    if(password === "8888") {
+        mensaje.style.display = "block";
+        error.style.display = "none";
+        lanzarCorazonesBlancos();
+    } else {
+        error.style.display = "block";
+        mensaje.style.display = "none";
+    }
+}
+
+function lanzarCorazonesBlancos() {
+    for(let i = 0; i < 20; i++) {
+        let heart = document.createElement("div");
+        heart.innerHTML = "🤍";
+        heart.style.position = "fixed";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.bottom = "0";
+        heart.style.fontSize = "20px";
+        heart.style.animation = "float 4s linear";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 4000);
+    }
+}
+</script>
